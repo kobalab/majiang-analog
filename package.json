@@ -7,7 +7,8 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "mocha -u tdd"
+    "test": "mocha -u tdd",
+    "test:cover": "nyc -r lcov -r text npm test"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   },
   "homepage": "https://github.com/kobalab/majiang-analog#readme",
   "devDependencies": {
-    "mocha": "^9.1.3"
+    "mocha": "^9.1.3",
+    "nyc": "^15.1.0"
   }
 }
