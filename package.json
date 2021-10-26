@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/kobalab/majiang-analog/issues"
   },
-  "homepage": "https://github.com/kobalab/majiang-analog#readme"
+  "homepage": "https://github.com/kobalab/majiang-analog#readme",
+  "devDependencies": {
+    "mocha": "^9.1.3"
+  }
 }
