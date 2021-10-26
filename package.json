@@ -1,0 +1,26 @@
+{
+  "name": "@kobalab/majiang-analog",
+  "version": "1.0.0",
+  "description": "電脳麻将牌譜解析ツール",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kobalab/majiang-analog.git"
+  },
+  "keywords": [
+    "麻雀",
+    "電脳麻将"
+  ],
+  "author": "Satoshi Kobayashi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kobalab/majiang-analog/issues"
+  },
+  "homepage": "https://github.com/kobalab/majiang-analog#readme"
+}
