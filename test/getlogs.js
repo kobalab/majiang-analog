@@ -1,7 +1,7 @@
 const assert = require('assert');
 const path   = require('path');
 
-const getlogs = require('../lib/getlogs');
+const getlogs = require('../').getlogs;
 
 function get_basename(filename) {
     let basename = [];
