@@ -23,6 +23,12 @@ class AnaLog extends require('../').base {
     analyze(basename, paipu, player_id) {
         super.analyze(basename, paipu, player_id);
         this._result.n_game++;
+        if (this._viewpoint != null) {
+            if (! this._result.rank) this._result.rank = [ 0, 0, 0, 0 ];
+            this._result.rank[paipu.rank[this._viewpoint] - 1]++;
+            if (! this._result.point) this._result.point = 0;
+            this._result.point += + paipu.point[this._viewpoint];
+        }
     }
     log(log) {
         this._fulou = [0,0,0,0];
@@ -30,15 +36,19 @@ class AnaLog extends require('../').base {
         this._result.n_ju++;
         this._result.n_fulou += this._fulou.reduce((x,y)=> x + y);
         const last = log[log.length - 1];
+        if (! last.hule || ! this.viewpoint(last.hule.baojia)) return;
         if (last.hule && last.hule.baojia != null) this._result.n_bao++;
     }
     dapai(dapai) {
+        if (! this.viewpoint(dapai.l)) return;
         if (dapai.p.substr(-1) == '*') this._result.n_lizhi++;
     }
     fulou(fulou) {
+        if (! this.viewpoint(fulou.l)) return;
         this._fulou[fulou.l] = 1;
     }
     hule(hule) {
+        if (! this.viewpoint(hule.l)) return;
         this._result.n_hule++;
         this._result.sum_defen += hule.defen;
         for (let hupai of hule.hupai) {
@@ -56,6 +66,15 @@ class AnaLog extends require('../').base {
     }
 }
 
-let [ filename ] = process.argv.slice(2);
+const yargs = require('yargs');
+const argv = yargs
+    .usage('Usage: $0 <log-dir>')
+    .option('times',     { alias: 't' })
+    .option('viewpoint', { alias: 'v' })
+    .option('player',    { alias: 'p' })
+    .option('silent',    { alias: 's', boolean: true })
+    .demandCommand(1)
+    .argv;
+const filename = argv._[0];
 
-console.log(AnaLog.analyze(filename));
+console.log(AnaLog.analyze(filename, argv));
