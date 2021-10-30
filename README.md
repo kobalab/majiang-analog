@@ -21,7 +21,6 @@ class AnaLog extends require('@kobalab/majiang-analog').analog {
 
     /* 和了時に呼び出されるメソッドをオーバーライドして解析処理を書く */
     hule(hule) {
-        super.hule(hule);                   // 親クラスの処理を呼ぶ
         if (hule.hupai.find(h=> h.name == '大三元')) {   // 大三元で和了した場合
             console.log(this.idx(hule.l));  // ログにどの牌譜か出力する
         }
@@ -34,9 +33,12 @@ AnaLog.analyze();     // 解析を実行する
 
 ## メソッド
 牌譜の各段階で以下のメソッドが呼び出されます。メソッドのパラメータはそれぞれに対応する [牌譜](https://github.com/kobalab/majiang-core/wiki/%E7%89%8C%E8%AD%9C) の情報です。
+this._model には [卓情報](https://github.com/kobalab/majiang-core/wiki/%E5%8D%93%E6%83%85%E5%A0%B1) が設定されてます。
 
 |  契機      |  メソッド            |
 |:----------|:----------------------|
+| 解析開始   | init()               |
+| 対戦開始   | kaiju(_paipu_)       |
 | 配牌       | qipai(_qipai_)       |
 | 自摸       | zimo(_zimo_)         |
 | 打牌       | dapai(_dapai_)       |
@@ -48,8 +50,6 @@ AnaLog.analyze();     // 解析を実行する
 | 流局       | pingju(_pingju_)     |
 
 配牌時には qipai(_qipai_) がパラメータ _qipai_ に [牌譜#配牌](https://github.com/kobalab/majiang-core/wiki/%E7%89%8C%E8%AD%9C#%E9%85%8D%E7%89%8C-qipai) を設定して呼び出されます。場風は _qipai_.zhuangfeng に設定されています。各プレーヤーの配牌は _qipai_.shoupai に設定されます。
-
-メソッドをオーバーライドするときは親クラスのメソッド呼び出しを忘れずに行ってください。これにより this._model に [卓情報](https://github.com/kobalab/majiang-core/wiki/%E5%8D%93%E6%83%85%E5%A0%B1) が設定され利用できるようになります。
 
 **static** analyze(_filename_) を呼び出すと解析を開始します。_filename_ は解析対象のファイル名、もしくは牌譜のあるディレクトリ名です。省略時にはカレントディレクトリが指定されたと解釈します。
 

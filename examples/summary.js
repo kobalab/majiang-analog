@@ -5,8 +5,7 @@
 
 class AnaLog extends require('../').base {
 
-    constructor() {
-        super();
+    init() {
         this._result = {
             n_game:     0,
             n_ju:       0,
@@ -20,8 +19,7 @@ class AnaLog extends require('../').base {
             pingju:     {},
         };
     }
-    analyze(basename, paipu, player_id) {
-        super.analyze(basename, paipu, player_id);
+    kaiju(paipu) {
         this._result.n_game++;
         if (this._viewpoint != null) {
             if (! this._result.rank) this._result.rank = [ 0, 0, 0, 0 ];
@@ -30,14 +28,9 @@ class AnaLog extends require('../').base {
             this._result.point += + paipu.point[this._viewpoint];
         }
     }
-    log(log) {
-        this._fulou = [0,0,0,0];
-        super.log(log);
+    qipai(qipai) {
         this._result.n_ju++;
-        this._result.n_fulou += this._fulou.reduce((x,y)=> x + y);
-        const last = log[log.length - 1];
-        if (! last.hule || ! this.viewpoint(last.hule.baojia)) return;
-        if (last.hule && last.hule.baojia != null) this._result.n_bao++;
+        this._fulou = [0,0,0,0];
     }
     dapai(dapai) {
         if (! this.viewpoint(dapai.l)) return;
@@ -64,6 +57,12 @@ class AnaLog extends require('../').base {
         this._result.pingju[pingju.name] = this._result.pingju[pingju.name] || 0;
         this._result.pingju[pingju.name]++;
     }
+    last(log) {
+        this._result.n_fulou += this._fulou.reduce((x,y)=> x + y);
+        const last = log[log.length - 1];
+        if (! last.hule || ! this.viewpoint(last.hule.baojia)) return;
+        if (last.hule && last.hule.baojia != null) this._result.n_bao++;
+    }
 }
 
 const yargs = require('yargs');
@@ -77,4 +76,4 @@ const argv = yargs
     .argv;
 const filename = argv._[0];
 
-console.log(AnaLog.analyze(filename, argv));
+console.log(AnaLog.analyze(filename, argv)._result);

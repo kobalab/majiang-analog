@@ -7,8 +7,7 @@ const Majiang = require('@kobalab/majiang-core');
 
 class AnaLog extends require('../').analog {
 
-    constructor() {
-        super();
+    init() {
         this._result = {
             xiangting:  [],
             lizhi:      [],
@@ -16,7 +15,6 @@ class AnaLog extends require('../').analog {
         };
     }
     qipai(qipai) {
-        super.qipai(qipai);
         let r = this._result;
         if (! r.xiangting[0]) {
             r.xiangting[0] = [0,0,0,0,0,0,0];
@@ -29,7 +27,6 @@ class AnaLog extends require('../').analog {
         }
     }
     dapai(dapai) {
-        super.dapai(dapai);
         let r = this._result;
         let n = this._model.he[dapai.l]._pai.length;
         if (! r.xiangting[n]) {
@@ -42,7 +39,6 @@ class AnaLog extends require('../').analog {
         if (dapai.p.substr(-1) == '*') r.lizhi[n]++;
     }
     hule(hule) {
-        super.hule(hule);
         let r = this._result;
         let n = this._model.he[hule.l]._pai.length;
         r.hule[n]++;
@@ -58,4 +54,4 @@ const argv = yargs
     .argv;
 const filename = argv._[0];
 
-console.log(AnaLog.analyze(filename, argv));
+console.log(AnaLog.analyze(filename, argv)._result);
