@@ -1,6 +1,6 @@
 {
   "name": "@kobalab/majiang-analog",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "電脳麻将牌譜解析ツール",
   "publishConfig": {
     "access": "public"
@@ -16,7 +16,8 @@
   },
   "keywords": [
     "麻雀",
-    "電脳麻将"
+    "電脳麻将",
+    "牌譜"
   ],
   "author": "Satoshi Kobayashi",
   "license": "MIT",
