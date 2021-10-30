@@ -6,6 +6,7 @@
 class AnaLog extends require('../').base {
 
     hule(hule) {
+        if (! this.viewpoint(hule.l)) return;
         if (hule.hupai.find(h=> h.name == search))
                                     console.log(this.idx(hule.l));
     }
@@ -18,6 +19,8 @@ const yargs = require('yargs');
 const argv = yargs
     .usage('Usage: $0 <log-dir> <search>')
     .option('times',     { alias: 't' })
+    .option('viewpoint', { alias: 'v' })
+    .option('player',    { alias: 'p' })
     .option('silent',    { alias: 's', boolean: true })
     .demandCommand(2)
     .argv;
