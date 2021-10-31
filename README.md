@@ -6,7 +6,7 @@
 
 天鳳の牌譜も [tenhou-log](https://www.npmjs.com/package/@kobalab/tenhou-log) で電脳麻将形式に変換し、[解析する](https://blog.kobalab.net/entry/20180113/1515776231)ことが可能です。
 
-**現在はβ版のリリースです。正式版までにインタフェースを変更する可能性があります。**
+**現在はβ版(v0.x)のリリースです。正式版(v1.0.0)までにインタフェースを変更する可能性があります。**
 
 ## インストール
 ```sh
@@ -33,23 +33,24 @@ AnaLog.analyze();     // 解析を実行する
 
 ## メソッド
 牌譜の各段階で以下のメソッドが呼び出されます。メソッドのパラメータはそれぞれに対応する [牌譜](https://github.com/kobalab/majiang-core/wiki/%E7%89%8C%E8%AD%9C) の情報です。
-this._model には [卓情報](https://github.com/kobalab/majiang-core/wiki/%E5%8D%93%E6%83%85%E5%A0%B1) が設定されてます。
+this._model には [卓情報](https://github.com/kobalab/majiang-core/wiki/%E5%8D%93%E6%83%85%E5%A0%B1) が設定されます。
 
-|  契機      |  メソッド            |
-|:----------|:----------------------|
-| 解析開始   | init()               |
-| 対戦開始   | kaiju(_paipu_)       |
-| 配牌       | qipai(_qipai_)       |
-| 自摸       | zimo(_zimo_)         |
-| 打牌       | dapai(_dapai_)       |
-| 副露       | fulou(_fulou_)       |
-| 暗槓・加槓  | gang(_gang_)        |
-| 槓自摸     | gangzimo(_gangzimo_) |
-| 開槓       | kaigang(_kaigang_)   |
-| 和了       | hule(_hule_)         |
-| 流局       | pingju(_pingju_)     |
+|  契機        |  メソッド                                                                                                                    |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------|
+| 解析開始     | init()                                                                                                                       |
+| 対戦開始     | kaiju([_paipu_](https://github.com/kobalab/majiang-core/wiki/%E7%89%8C%E8%AD%9C#%E5%85%A8%E4%BD%93))                         |
+| 配牌         | qipai([_qipai_](https://github.com/kobalab/majiang-core/wiki/%E7%89%8C%E8%AD%9C#%E9%85%8D%E7%89%8C-qipai))                   |
+| 自摸         | zimo([_zimo_](https://github.com/kobalab/majiang-core/wiki/%E7%89%8C%E8%AD%9C#%E8%87%AA%E6%91%B8-zimo))                      |
+| 打牌         | dapai([_dapai_](https://github.com/kobalab/majiang-core/wiki/%E7%89%8C%E8%AD%9C#%E6%89%93%E7%89%8C-dapai))                   |
+| 副露         | fulou([_fulou_](https://github.com/kobalab/majiang-core/wiki/%E7%89%8C%E8%AD%9C#%E5%89%AF%E9%9C%B2-fulou))                   |
+| 暗槓・加槓   | gang([_gang_](https://github.com/kobalab/majiang-core/wiki/%E7%89%8C%E8%AD%9C#%E6%A7%93-gang))                               |
+| 槓自摸       | gangzimo([_gangzimo_](https://github.com/kobalab/majiang-core/wiki/%E7%89%8C%E8%AD%9C#%E6%A7%93%E8%87%AA%E6%91%B8-gangzimo)) |
+| 開槓         | kaigang([_kaigang_](https://github.com/kobalab/majiang-core/wiki/%E7%89%8C%E8%AD%9C#%E9%96%8B%E6%A7%93-kaigang))             |
+| 和了         | hule([_hule_](https://github.com/kobalab/majiang-core/wiki/%E7%89%8C%E8%AD%9C#%E5%92%8C%E4%BA%86-hule))                      |
+| 流局         | pingju([_pingju_](https://github.com/kobalab/majiang-core/wiki/%E7%89%8C%E8%AD%9C#%E6%B5%81%E5%B1%80-pingju))                |
+| 和了・流局後 | last([_log_](https://github.com/kobalab/majiang-core/wiki/%E7%89%8C%E8%AD%9C#%E5%B1%80%E6%83%85%E5%A0%B1))                   |
 
-配牌時には qipai(_qipai_) がパラメータ _qipai_ に [牌譜#配牌](https://github.com/kobalab/majiang-core/wiki/%E7%89%8C%E8%AD%9C#%E9%85%8D%E7%89%8C-qipai) を設定して呼び出されます。場風は _qipai_.zhuangfeng に設定されています。各プレーヤーの配牌は _qipai_.shoupai に設定されます。
+例えば、配牌時には qipai(_qipai_) が呼び出され、[_qipai_.shoupai](https://github.com/kobalab/majiang-core/wiki/%E7%89%8C%E8%AD%9C#shoupai) には各プレーヤーの配牌が設定されます。
 
 **static** analyze(_filename_) を呼び出すと解析を開始します。_filename_ は解析対象のファイル名、もしくは牌譜のあるディレクトリ名です。省略時にはカレントディレクトリが指定されたと解釈します。
 
