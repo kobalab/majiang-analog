@@ -33,7 +33,7 @@ AnaLog.analyze();     // 解析を実行する
 
 ## メソッド
 牌譜の各段階で以下のメソッドが呼び出されます。メソッドのパラメータはそれぞれに対応する [牌譜](https://github.com/kobalab/majiang-core/wiki/%E7%89%8C%E8%AD%9C) の情報です。
-this._model には [卓情報](https://github.com/kobalab/majiang-core/wiki/%E5%8D%93%E6%83%85%E5%A0%B1) が設定されます。
+this.board には [卓情報](https://github.com/kobalab/majiang-core/wiki/%E5%8D%93%E6%83%85%E5%A0%B1) が設定されます。
 
 |  契機        |  メソッド                                                                                                                    |
 |:-------------|:-----------------------------------------------------------------------------------------------------------------------------|
