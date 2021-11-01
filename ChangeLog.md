@@ -3,8 +3,8 @@
   - インターフェースを変更
      - this._result を廃止
      - 親クラスのメソッド呼び出しを不要にした
-   - examples に xiangting.js を追加
+  - examples に xiangting.js を追加
 
 ## v0.1.0 / 2021-10-30
 
-   - βリリース
+  - βリリース
