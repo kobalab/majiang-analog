@@ -8,6 +8,7 @@ class AnaLog extends require('../').base {
     init() {
         this._result = {
             n_game:      0,
+            n_ju:        0,
             n:           0,
             sum:         0,
             n_hule:      0,
@@ -29,6 +30,7 @@ class AnaLog extends require('../').base {
         this._menfeng  = (8 + this._viewpoint - this._qijia - qipai.jushu) % 4;
         this._beilizhi = false;
         this._lizhi    = [0,0,0,0];
+        this._result.n_ju++;
     }
     zimo(zimo)   { this._lizhi = this._lizhi.map(x=> x && 1) }
     fulou(fulou) { this._lizhi = this._lizhi.map(x=> x && 1) }
@@ -82,6 +84,7 @@ const argv = yargs
     .usage('Usage: $0 <log-dir>')
     .option('times',     { alias: 't' })
     .option('viewpoint', { alias: 'v', default: 0 })
+    .option('player',    { alias: 'p' })
     .option('silent',    { alias: 's', boolean: true })
     .demandCommand(1)
     .argv;
@@ -91,6 +94,8 @@ let r = AnaLog.analyze(filename, argv)._result;
 
 if (! argv.silent) console.log(r);
 
+console.log('被先制リーチ率',
+            Math.round(r.n        / r.n_ju * 1000) / 10 + '%');
 console.log('和了',
             Math.round(r.n_hule      / r.n * 1000) / 10 + '%',
             Math.round(r.sum_hule    / r.n_hule));
