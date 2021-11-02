@@ -25,6 +25,7 @@ class AnaLog extends require('../').base {
     }
     kaiju(paipu) {
         this._result.n_game++;
+        this._qijia = paipu.qijia;
     }
     qipai(qipai) {
         this._menfeng  = (8 + this.viewpoint - this._qijia - qipai.jushu) % 4;
