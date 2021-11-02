@@ -21,11 +21,11 @@ class AnaLog extends require('../').base {
     }
     kaiju(paipu) {
         this._result.n_game++;
-        if (this._viewpoint != null) {
+        if (this.viewpoint != null) {
             if (! this._result.n_rank) this._result.n_rank = [ 0, 0, 0, 0 ];
-            this._result.n_rank[paipu.rank[this._viewpoint] - 1]++;
+            this._result.n_rank[paipu.rank[this.viewpoint] - 1]++;
             if (! this._result.sum_point) this._result.sum_point = 0;
-            this._result.sum_point += + paipu.point[this._viewpoint];
+            this._result.sum_point += + paipu.point[this.viewpoint];
         }
     }
     qipai(qipai) {
