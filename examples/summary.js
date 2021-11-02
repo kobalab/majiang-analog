@@ -33,15 +33,15 @@ class AnaLog extends require('../').base {
         this._fulou = [0,0,0,0];
     }
     dapai(dapai) {
-        if (! this.viewpoint(dapai.l)) return;
+        if (! this.watch(dapai.l)) return;
         if (dapai.p.substr(-1) == '*') this._result.n_lizhi++;
     }
     fulou(fulou) {
-        if (! this.viewpoint(fulou.l)) return;
+        if (! this.watch(fulou.l)) return;
         this._fulou[fulou.l] = 1;
     }
     hule(hule) {
-        if (! this.viewpoint(hule.l)) return;
+        if (! this.watch(hule.l)) return;
         this._result.n_hule++;
         this._result.sum_defen += hule.defen;
         for (let hupai of hule.hupai) {
@@ -60,7 +60,7 @@ class AnaLog extends require('../').base {
     last(log) {
         this._result.n_fulou += this._fulou.reduce((x,y)=> x + y);
         const last = log[log.length - 1];
-        if (! last.hule || ! this.viewpoint(last.hule.baojia)) return;
+        if (! last.hule || ! this.watch(last.hule.baojia)) return;
         if (last.hule && last.hule.baojia != null) this._result.n_bao++;
     }
 }

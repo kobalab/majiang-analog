@@ -6,7 +6,7 @@
 class AnaLog extends require('../').base {
 
     hule(hule) {
-        if (! this.viewpoint(hule.l)) return;
+        if (! this.watch(hule.l)) return;
         if (hule.hupai.find(h=> h.name == search))
                                     console.log(this.idx(hule.l));
     }
