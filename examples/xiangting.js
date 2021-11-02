@@ -22,25 +22,25 @@ class AnaLog extends require('../').analog {
             r.hule[0]      = 0;
         }
         for (let l = 0; l < 4; l++) {
-            let x = Majiang.Util.xiangting(this._model.shoupai[l]);
+            let x = Majiang.Util.xiangting(this.board.shoupai[l]);
             r.xiangting[0][x]++;
         }
     }
     dapai(dapai) {
         let r = this._result;
-        let n = this._model.he[dapai.l]._pai.length;
+        let n = this.board.he[dapai.l]._pai.length;
         if (! r.xiangting[n]) {
             r.xiangting[n] = [0,0,0,0,0,0,0];
             r.lizhi[n]     = 0;
             r.hule[n]      = 0;
         }
-        let x = Majiang.Util.xiangting(this._model.shoupai[dapai.l]);
+        let x = Majiang.Util.xiangting(this.board.shoupai[dapai.l]);
         r.xiangting[n][x]++;
         if (dapai.p.substr(-1) == '*') r.lizhi[n]++;
     }
     hule(hule) {
         let r = this._result;
-        let n = this._model.he[hule.l]._pai.length;
+        let n = this.board.he[hule.l]._pai.length;
         r.hule[n]++;
     }
 }

@@ -1,10 +1,21 @@
+## v0.3.0 / 2021-11-03
+
+  - インタフェース変更
+    - _model → board
+    - .viewpoint() → .watch()
+    - ._basename → .basename
+    - ._viewpoint → .viewpoint
+  - examples を追加
+    - after_lizhi.js  - 先制リーチを受けた局の結果と収支
+    - diff.js  - 2つの牌譜から差分を抽出する
+
 ## v0.2.0 / 2021-10-31
 
-  - インターフェースを変更
+  - インタフェースを変更
      - this._result を廃止
      - 親クラスのメソッド呼び出しを不要にした
-   - examples に xiangting.js を追加
+  - examples に xiangting.js を追加
 
 ## v0.1.0 / 2021-10-30
 
-   - βリリース
+  - βリリース
