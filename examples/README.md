@@ -9,4 +9,5 @@
 | dist_pai.js     | [局終了時の牌の分布](https://blog.kobalab.net/entry/20180119/1516290844)               |
 | dist_hulepai.js | [和了牌の分布](https://blog.kobalab.net/entry/20180120/1516417938)                     |
 | fulou.js        | [巡目ごとの副露数・副露時向聴数](https://blog.kobalab.net/entry/20180203/1517667551)   |
+| hule_pattern.js | [リーチに対する待ちの形ごとの危険度](https://blog.kobalab.net/entry/2021/01/22/204805) |
 | after_lizhi.js  | [先制リーチを受けた局の結果と収支](https://blog.kobalab.net/entry/2020/12/21/202933)   |
