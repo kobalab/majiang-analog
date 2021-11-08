@@ -17,7 +17,7 @@ $ npm i @kobalab/majiang-analog
 
 majiang-analog の提供するクラスのサブクラスを作成し、メソッドをオーバーライドして解析処理を記述します。
 ```js
-class AnaLog extends require('@kobalab/majiang-analog').analog {
+class AnaLog extends require('@kobalab/majiang-analog') {
 
     /* 和了時に呼び出されるメソッドをオーバーライドして解析処理を書く */
     hule(hule) {

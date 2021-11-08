@@ -112,7 +112,7 @@ function get_tingpai_type(shoupai, p) {
 /*
  *  集計方法定義
  */
-class AnaLog extends require('../').analog {
+class AnaLog extends require('../') {
 
     init() {
         let tingpai_type = {};
