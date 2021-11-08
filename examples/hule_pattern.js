@@ -160,10 +160,6 @@ class AnaLog extends require('../').analog {
                 let tt = get_tingpai_type(shoupai, p);
                 r.hule[pt][tt]++;
             }
-
-            return;
-            console.log(this.idx(dapai.l), r);
-            process.exit(-1);
         }
     }
 }
