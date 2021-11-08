@@ -17,7 +17,7 @@ $ npm i @kobalab/majiang-analog
 
 majiang-analog の提供するクラスのサブクラスを作成し、メソッドをオーバーライドして解析処理を記述します。
 ```js
-class AnaLog extends require('@kobalab/majiang-analog').analog {
+class AnaLog extends require('@kobalab/majiang-analog') {
 
     /* 和了時に呼び出されるメソッドをオーバーライドして解析処理を書く */
     hule(hule) {
@@ -52,7 +52,37 @@ this.board には [卓情報](https://github.com/kobalab/majiang-core/wiki/%E5%8
 
 例えば、配牌時には qipai(_qipai_) が呼び出され、[_qipai_.shoupai](https://github.com/kobalab/majiang-core/wiki/%E7%89%8C%E8%AD%9C#shoupai) には各プレーヤーの配牌が設定されます。
 
-**static** analyze(_filename_) を呼び出すと解析を開始します。_filename_ は解析対象のファイル名、もしくは牌譜のあるディレクトリ名です。省略時にはカレントディレクトリが指定されたと解釈します。
+## 起動方法
+**static** analyze(_filename_, _argv_) を呼び出すと解析を開始します。
+_filename_ は解析対象のファイル名、もしくは牌譜のあるディレクトリ名です。省略時にはカレントディレクトリが指定されたと解釈します。
+_argv_ には以下の動作を変更するオプションが指定できます。
+
+#### times
+指定した場合、これを超える数のログを解析しません。
+
+#### slient
+解析進捗状況の表示を停止します。
+
+#### viewpoint
+指定された値を this.viewpoint に設定します。特定の席順(仮東など)の対局者のみ集計したい場合に利用できます。
+**viewpoint** が指定されているとき、メソッド watch(_l_) は手番 _l_ が席順 **viewpont** と一致しなければ偽を返します。
+
+#### player
+指定された名前と一致する対局者の席順を this.viewpoint に設定します。
+
+## その他の機能
+```js
+const { base, getlogs } = require("@kobalab/majiang-analog");
+```
+### base
+簡易解析用の基底クラス。
+this.board に [卓情報](https://github.com/kobalab/majiang-core/wiki/%E5%8D%93%E6%83%85%E5%A0%B1) を設定しませんが、高速に動作します。
+
+### getlogs
+* **filename** - string
+* _返り値_ - object
+
+**filename** で指定されたファイルもしくはディレクトリから [牌譜](https://github.com/kobalab/majiang-core/wiki/%E7%89%8C%E8%AD%9C) を1つずつ取り出すイテレータを返します。
 
 ## ライセンス
 [MIT](https://github.com/kobalab/majiang-analog/blob/master/LICENSE)

@@ -12,7 +12,7 @@ function init_dist(n, hongpai = {m:0,p:0,s:0}) {
     };
 }
 
-class AnaLog extends require('../').analog {
+class AnaLog extends require('../') {
 
     init() {
         this._result = {

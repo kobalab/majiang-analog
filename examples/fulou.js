@@ -5,7 +5,7 @@
 
 const Majiang = require('@kobalab/majiang-core');
 
-class AnaLog extends require('../').analog {
+class AnaLog extends require('../') {
 
     init() {
         this._result = {
