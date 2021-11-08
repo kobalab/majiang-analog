@@ -7,7 +7,7 @@ class AnaLog extends require('../').base {
 
     init() {
         this._result = {
-            n_game:     0,  // 相対局数
+            n_game:     0,  // 総対局数
             n_ju:       0,  // 総局数
             n_hule:     0,  // 総和了数
             n_pingju:   0,  // 総流局数
@@ -20,7 +20,7 @@ class AnaLog extends require('../').base {
         };
     }
     kaiju(paipu) {
-        this._result.n_game++;      // 相対局数を加算
+        this._result.n_game++;      // 総対局数を加算
         if (this.viewpoint != null) {   // viewpointの指定がある場合
 
             /* viewpointに対する順位の統計を取る */
@@ -60,7 +60,7 @@ class AnaLog extends require('../').base {
         }
     }
     pingju(pingju) {
-        this._result.n_pingju++;    // 惣流局数を加算
+        this._result.n_pingju++;    // 総流局数を加算
         /* 流局理由を集計する */
         this._result.pingju[pingju.name] = this._result.pingju[pingju.name] || 0;
         this._result.pingju[pingju.name]++;
