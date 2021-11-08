@@ -52,7 +52,36 @@ this.board には [卓情報](https://github.com/kobalab/majiang-core/wiki/%E5%8
 
 例えば、配牌時には qipai(_qipai_) が呼び出され、[_qipai_.shoupai](https://github.com/kobalab/majiang-core/wiki/%E7%89%8C%E8%AD%9C#shoupai) には各プレーヤーの配牌が設定されます。
 
-**static** analyze(_filename_) を呼び出すと解析を開始します。_filename_ は解析対象のファイル名、もしくは牌譜のあるディレクトリ名です。省略時にはカレントディレクトリが指定されたと解釈します。
+## 起動方法
+**static** analyze(_filename_, _argv_) を呼び出すと解析を開始します。
+_filename_ は解析対象のファイル名、もしくは牌譜のあるディレクトリ名です。省略時にはカレントディレクトリが指定されたと解釈します。
+_argv_ には以下の動作を変更するオプションが指定できます。
+
+#### times
+指定した場合、これを超える数のログを解析しません。
+
+#### slient
+解析進捗状況の表示を停止します。
+
+#### viewpoint
+指定された値を this.viewpoint に設定します。特定の席順(仮東など)の対局者のみ集計したい場合に利用できます。
+
+#### player
+指定された名前と一致する対局者の席順を this.viewpoint に設定します。
+
+## その他の機能
+```js
+const { base, getlogs } = require("@kobalab/majiang-analog");
+```
+### base
+簡易解析用の基底クラス。
+this.board に [[卓情報]] を設定しませんが、高速に動作します。
+
+### getlogs
+* **filename** - string
+* _返り値_ - object
+
+**filename** で指定されたファイルもしくはディレクトリから [[牌譜]] を1つずつ取り出すイテレータを返します。
 
 ## ライセンス
 [MIT](https://github.com/kobalab/majiang-analog/blob/master/LICENSE)
