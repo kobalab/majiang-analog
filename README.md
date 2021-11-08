@@ -75,13 +75,13 @@ const { base, getlogs } = require("@kobalab/majiang-analog");
 ```
 ### base
 簡易解析用の基底クラス。
-this.board に [[卓情報]] を設定しませんが、高速に動作します。
+this.board に [卓情報](https://github.com/kobalab/majiang-core/wiki/%E5%8D%93%E6%83%85%E5%A0%B1) を設定しませんが、高速に動作します。
 
 ### getlogs
 * **filename** - string
 * _返り値_ - object
 
-**filename** で指定されたファイルもしくはディレクトリから [[牌譜]] を1つずつ取り出すイテレータを返します。
+**filename** で指定されたファイルもしくはディレクトリから [牌譜](https://github.com/kobalab/majiang-core/wiki/%E7%89%8C%E8%AD%9C) を1つずつ取り出すイテレータを返します。
 
 ## ライセンス
 [MIT](https://github.com/kobalab/majiang-analog/blob/master/LICENSE)
