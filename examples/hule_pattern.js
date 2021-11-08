@@ -44,7 +44,8 @@ function get_paishu(board) {
     for (let l = 0; l < 4; l++) {
         /* 河に見えている枚数をカウント */
         for (let p of board.he[l]._pai) {
-            if (p.match(/[\+\=\-]$/)) continue; // 鳴かれた牌は副露メンツ側でカウント
+            if (p.match(/[\+\=\-]$/)) continue;
+                                        // 鳴かれた牌は副露メンツ側でカウント
             let s = p[0], n = + p[1] || 5;
             paishu[s][n-1]++;
         }
@@ -99,11 +100,11 @@ function get_pattern(board, l, p, paishu) {
  */
 function get_tingpai_type(shoupai, p) {
     const get_type = (m)=>
-          m.match(/^[mpsz](\d)\1_!$/)     ? 0
-        : m.match(/^[mpsz](\d)\1\1_!$/)   ? 1
-        : m.match(/^[mps]\d\d_!\d$/)      ? 2
-        : m.match(/^[mps](123_!|7_!89)$/) ? 3
-        :                                   4;
+          m.match(/^[mpsz](\d)\1_!$/)     ? 0   // 単騎
+        : m.match(/^[mpsz](\d)\1\1_!$/)   ? 1   // 双碰
+        : m.match(/^[mps]\d\d_!\d$/)      ? 2   // 嵌張
+        : m.match(/^[mps](123_!|7_!89)$/) ? 3   // 辺張
+        :                                   4;  // 両面
     return TINGPAI_TYPE[
         Math.max(... Majiang.Util.hule_mianzi(shoupai.clone().zimo(p))
                             .map(mm=>get_type(mm.find(m=>m.match(/\!/))))) ];
@@ -120,10 +121,10 @@ class AnaLog extends require('../') {
             tingpai_type[tt] = 0;
         }
         this._result = {
-            all_lizhi: 0,
-            n_lizhi:   0,
-            all:    init_pattern(0),
-            hule:   init_pattern(tingpai_type),
+            all_lizhi: 0,                       // 総リーチ数
+            n_lizhi:   0,                       // 集計対象のリーチ数
+            all:    init_pattern(0),            // すべての牌を分類(分母)
+            hule:   init_pattern(tingpai_type), // 和了牌を分類(分子)
         };
     }
     dapai(dapai) {
@@ -144,7 +145,8 @@ class AnaLog extends require('../') {
 
             r.n_lizhi++;        // 集計対象のリーチ数を1加算
 
-            let paishu = get_paishu(this.board);    // 場に見えている牌の枚数を集計
+            let paishu = get_paishu(this.board);
+                                            // 場に見えている牌の枚数を集計
 
             /* 全ての牌についてパターン分類する */
             for (let s of ['m','p','s','z']) {
