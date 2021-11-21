@@ -12,4 +12,4 @@
 | hule_pattern.js | [リーチに対する待ちの形ごとの危険度](https://blog.kobalab.net/entry/2021/01/22/204805)
 | after_lizhi.js  | [先制リーチを受けた局の結果と収支](https://blog.kobalab.net/entry/2020/12/21/202933)
 | trap_lizhi.js   | [モロ引っ掛けの危険度](https://blog.kobalab.net/entry/2021/11/19/201332)
-| dist_lizhi.js   | リーチ宣言牌および最初に切った数牌と同種の牌の危険度
+| dist_lizhi.js   | [リーチ宣言牌および最初に切った数牌と同種の牌の危険度](https://blog.kobalab.net/entry/2021/11/21/121835)
