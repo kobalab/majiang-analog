@@ -2,7 +2,7 @@
 
   - examples を追加
     - dist_lizhi.js  - リーチ宣言牌および最初に切った数牌と同種の牌の危険度
-  - @kobalab/majiang-core 0.1.3 → 0.1.3
+  - @kobalab/majiang-core 0.1.2 → 0.1.3
 
 ### v0.4.2 / 2021-11-19
 
