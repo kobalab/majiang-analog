@@ -1,3 +1,10 @@
+### v0.4.4 / 2022-01-24
+
+  - examples を追加
+    - examples/diff-strict.js を追加  - 2つの牌譜から厳密に差分を抽出する
+  - @kobalab/majiang-core 0.1.3 → 0.2.1
+  - 脆弱性警告に対処(mocha 9.1.3 → 9.2.0)
+
 ### v0.4.3 / 2021-12-09
 
   - examples を追加
