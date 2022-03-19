@@ -1,3 +1,9 @@
+### v0.4.5 / 2022-03-19
+
+  - examples を追加
+    - double_lizhi.js - ダブルリーチの好形率・和了率・平均打点
+  - @kobalab/majiang-core 0.2.1 → 0.2.4
+
 ### v0.4.4 / 2022-01-24
 
   - examples を追加
