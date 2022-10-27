@@ -12,11 +12,12 @@ const TINGPAI_TYPE = ['単騎','双碰','嵌張','辺張','両面'];
  */
 function get_tingpai_type(shoupai, p) {
     const get_type = (m)=>
-          m.match(/^[mpsz](\d)\1_!$/)     ? 0   // 単騎
-        : m.match(/^[mpsz](\d)\1\1_!$/)   ? 1   // 双碰
-        : m.match(/^[mps]\d\d_!\d$/)      ? 2   // 嵌張
-        : m.match(/^[mps](123_!|7_!89)$/) ? 3   // 辺張
-        :                                   4;  // 両面
+          m.match(/^[mps]\d{14}_!$/)      ? -1  // 九蓮宝燈
+        : m.match(/^[mpsz](\d)\1_!$/)     ?  0  // 単騎
+        : m.match(/^[mpsz](\d)\1\1_!$/)   ?  1  // 双碰
+        : m.match(/^[mps]\d\d_!\d$/)      ?  2  // 嵌張
+        : m.match(/^[mps](123_!|7_!89)$/) ?  3  // 辺張
+        :                                    4; // 両面
     return TINGPAI_TYPE[
         Math.max(... Majiang.Util.hule_mianzi(shoupai.clone().zimo(p))
                             .map(mm=>get_type(mm.find(m=>m.match(/\!/))))) ];
