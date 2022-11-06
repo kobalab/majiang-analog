@@ -6,8 +6,6 @@
 
 天鳳の牌譜も [tenhou-log](https://www.npmjs.com/package/@kobalab/tenhou-log) で電脳麻将形式に変換し、[解析する](https://blog.kobalab.net/entry/20180113/1515776231)ことが可能です。
 
-**現在はβ版(v0.x)のリリースです。正式版(v1.0.0)までにインタフェースを変更する可能性があります。**
-
 ## インストール
 ```sh
 $ npm i @kobalab/majiang-analog
