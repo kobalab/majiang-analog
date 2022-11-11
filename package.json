@@ -1,6 +1,6 @@
 {
   "name": "@kobalab/majiang-analog",
-  "version": "0.4.7",
+  "version": "1.0.0",
   "description": "電脳麻将牌譜解析ツール",
   "publishConfig": {
     "access": "public"
