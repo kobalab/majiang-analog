@@ -2,7 +2,7 @@
 
 電脳麻将牌譜解析ツール
 
-電脳麻将形式の牌譜を解析する基底クラスを提供します。本クラスのサブクラスを作成し、解析のためのプログラムを書くことができます。
+[電脳麻将](https://github.com/kobalab/Majiang)形式の[牌譜](https://github.com/kobalab/majiang-core/wiki/%E7%89%8C%E8%AD%9C)を解析する基底クラスを提供します。本クラスのサブクラスを作成し、解析のためのプログラムを書くことができます。
 
 天鳳の牌譜も [tenhou-log](https://www.npmjs.com/package/@kobalab/tenhou-log) で電脳麻将形式に変換し、[解析する](https://blog.kobalab.net/entry/20180113/1515776231)ことが可能です。
 
