@@ -4,8 +4,9 @@ const path   = require('path');
 const getlogs = require('../').getlogs;
 
 function get_basename(filename) {
+    process.chdir(__dirname);
     let basename = [];
-    for (let log of getlogs(path.join(__dirname, filename))) {
+    for (let log of getlogs(filename)) {
         basename.push(log.basename);
     }
     return basename;
@@ -39,5 +40,11 @@ suite('getlogs', ()=>{
             'multi.json#0', 'multi.json#1',
             'single.json#0'
         ])
+    });
+    test('複数のファイルを指定', ()=>{
+        assert.deepEqual(get_basename(['log/multi.json','log/single.json']), [
+            'multi.json#0', 'multi.json#1',
+            'single.json#0'
+        ]);
     });
 });
