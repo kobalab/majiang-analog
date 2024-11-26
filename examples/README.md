@@ -16,3 +16,4 @@
 | trap_lizhi.js   | [モロ引っ掛けの危険度](https://blog.kobalab.net/entry/2021/11/19/201332)
 | dist_lizhi.js   | [リーチ宣言牌および最初に切った数牌と同種の牌の危険度](https://blog.kobalab.net/entry/2021/11/21/121835)
 | double_lizhi.js | [ダブルリーチの好形率・和了率・平均打点](https://blog.kobalab.net/entry/2022/03/19/124607)
+| highest_records.js | 最高記録(最大局数、最長の手牌、最長の河など)
