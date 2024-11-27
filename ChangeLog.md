@@ -1,3 +1,16 @@
+## v1.2.0 / 2024-11-27
+
+  - 牌譜の指定に配列と再帰を使用できるよう修正
+    - getlogs() の引数を上記に変更
+    - examples の script も上記に従うよう修正
+  - examples を追加
+    - highest_records.js - 最高記録(最大局数、最長の手牌、最長の河など)
+  - パッケージを最新化
+    - @kobalab/majiang-core 1.3.0 → 1.3.1
+    - mocha 10.7.3 → 10.8.2
+  - 脆弱性警告に対処
+    - cross-spawn 7.0.3 → 7.0.6
+
 ## v1.1.0 / 2024-10-20
 
   - @kobalab/majiang-core 1.1.1 → 1.3.0
