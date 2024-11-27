@@ -81,9 +81,11 @@ this.board に [卓情報](https://github.com/kobalab/majiang-core/wiki/%E5%8D%9
 
 ### getlogs
 * **filename** - string
+* **recursive** - boolean
 * _返り値_ - object
 
-**filename** で指定されたファイルもしくはディレクトリから [牌譜](https://github.com/kobalab/majiang-core/wiki/%E7%89%8C%E8%AD%9C) を1つずつ取り出すイテレータを返します。
+**filename** で指定されたファイルもしくはディレクトリ、あるいはそれらを含む配列から [牌譜](https://github.com/kobalab/majiang-core/wiki/%E7%89%8C%E8%AD%9C) を1つずつ取り出すイテレータを返します。
+**recursive** に真を設定すると、**filename** 配下を再帰的に探索します。
 
 ## ライセンス
 [MIT](https://github.com/kobalab/majiang-analog/blob/master/LICENSE)
