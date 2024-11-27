@@ -3,10 +3,10 @@ const path   = require('path');
 
 const getlogs = require('../').getlogs;
 
-function get_basename(filename) {
+function get_basename(filename, recursive) {
     process.chdir(__dirname);
     let basename = [];
-    for (let log of getlogs(filename)) {
+    for (let log of getlogs(filename, recursive)) {
         basename.push(log.basename);
     }
     return basename;
@@ -46,5 +46,13 @@ suite('getlogs', ()=>{
             'multi.json#0', 'multi.json#1',
             'single.json#0'
         ]);
+    });
+    test('再帰オプションを指定', ()=>{
+        assert.deepEqual(get_basename('log', true), [
+            'compressed.json#0',
+            'subdir.json#0',
+            'multi.json#0', 'multi.json#1',
+            'single.json#0'
+        ])
     });
 });
