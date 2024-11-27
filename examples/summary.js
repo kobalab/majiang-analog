@@ -80,14 +80,14 @@ class AnaLog extends require('../').base {
 /* コマンドパラメータを処理する */
 const yargs = require('yargs');
 const argv = yargs
-    .usage('Usage: $0 <log-dir>')
+    .usage('Usage: $0 <log-dir>...')
     .option('times',     { alias: 't' })
     .option('viewpoint', { alias: 'v' })
     .option('player',    { alias: 'p' })
     .option('silent',    { alias: 's', boolean: true })
     .demandCommand(1)
     .argv;
-const filename = argv._[0];
+const filename = argv._;
 
 /* 牌譜解析実行 */
 const r = AnaLog.analyze(filename, argv)._result;

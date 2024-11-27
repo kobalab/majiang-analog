@@ -19,14 +19,14 @@ class AnaLog extends require('../').base {
 
 const yargs = require('yargs');
 const argv = yargs
-    .usage('Usage: $0 <search> <log-dir>')
+    .usage('Usage: $0 <search> <log-dir>...')
     .option('times',     { alias: 't' })
     .option('viewpoint', { alias: 'v' })
     .option('player',    { alias: 'p' })
     .option('silent',    { alias: 's', boolean: true })
     .demandCommand(2)
     .argv;
-const search   = new RegExp(argv._[0]);
-const filename = argv._[1];
+const search   = new RegExp(argv._.shift());
+const filename = argv._;
 
 AnaLog.analyze(filename, argv);
