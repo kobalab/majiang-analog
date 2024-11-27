@@ -5,9 +5,9 @@
 
 class AnaLog extends require('../') {
 
-    log(log) {
+    analyze(basename, paipu, viewpoint) {
         try {
-            super.log(log);
+            super.analyze(basename, paipu, viewpoint);
         }
         catch(e) {
             console.log(this.idx());
