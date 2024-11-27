@@ -18,6 +18,7 @@ class AnaLog extends require('../') {
 const yargs = require('yargs');
 const argv = yargs
     .usage('Usage: $0 <log-dir>...')
+    .option('recursive', { alias: 'r', boolean: true })
     .option('times',     { alias: 't' })
     .option('silent',    { alias: 's', boolean: true })
     .demandCommand(1)

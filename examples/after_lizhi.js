@@ -83,6 +83,7 @@ class AnaLog extends require('../').base {
 const yargs = require('yargs');
 const argv = yargs
     .usage('Usage: $0 <log-dir>...')
+    .option('recursive', { alias: 'r', boolean: true })
     .option('times',     { alias: 't' })
     .option('viewpoint', { alias: 'v', default: 0 })
     .option('player',    { alias: 'p' })
