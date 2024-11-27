@@ -82,14 +82,15 @@ class AnaLog extends require('../').base {
 
 const yargs = require('yargs');
 const argv = yargs
-    .usage('Usage: $0 <log-dir>')
+    .usage('Usage: $0 <log-dir>...')
+    .option('recursive', { alias: 'r', boolean: true })
     .option('times',     { alias: 't' })
     .option('viewpoint', { alias: 'v', default: 0 })
     .option('player',    { alias: 'p' })
     .option('silent',    { alias: 's', boolean: true })
     .demandCommand(1)
     .argv;
-const filename = argv._[0];
+const filename = argv._;
 
 let r = AnaLog.analyze(filename, argv)._result;
 

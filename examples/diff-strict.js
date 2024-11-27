@@ -35,11 +35,12 @@ function diff(p1, p2) {
 const yargs = require('yargs');
 const argv = yargs
     .usage('Usage: $0 <log-dir1> <log-dir2>')
+    .option('recursive', { alias: 'r', boolean: true })
     .option('all', {alias: 'a', boolean: true, description:'差分を全て抽出する'})
     .demandCommand(2)
     .argv;
-const logs1 = getlogs(argv._[0]);
-const logs2 = getlogs(argv._[1]);
+const logs1 = getlogs(argv._[0], argv.recursive);
+const logs2 = getlogs(argv._[1], argv.recursive);
 
 let t = 0;
 for (let p1 of logs1) {

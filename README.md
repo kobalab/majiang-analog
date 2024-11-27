@@ -52,8 +52,11 @@ this.board には [卓情報](https://github.com/kobalab/majiang-core/wiki/%E5%8
 
 ## 起動方法
 **static** analyze(_filename_, _argv_) を呼び出すと解析を開始します。
-_filename_ は解析対象のファイル名、もしくは牌譜のあるディレクトリ名です。省略時にはカレントディレクトリが指定されたと解釈します。
+_filename_ は解析対象のファイル名、もしくは牌譜のあるディレクトリ名、あるいはその両方を含む配列です。省略時にはカレントディレクトリが指定されたと解釈します。
 _argv_ には以下の動作を変更するオプションが指定できます。
+
+#### recursive
+指定した場合、ディレクトリを再帰的に探索して牌譜を探します。
 
 #### times
 指定した場合、これを超える数のログを解析しません。
@@ -78,9 +81,11 @@ this.board に [卓情報](https://github.com/kobalab/majiang-core/wiki/%E5%8D%9
 
 ### getlogs
 * **filename** - string
+* **recursive** - boolean
 * _返り値_ - object
 
-**filename** で指定されたファイルもしくはディレクトリから [牌譜](https://github.com/kobalab/majiang-core/wiki/%E7%89%8C%E8%AD%9C) を1つずつ取り出すイテレータを返します。
+**filename** で指定されたファイルもしくはディレクトリ、あるいはそれらを含む配列から [牌譜](https://github.com/kobalab/majiang-core/wiki/%E7%89%8C%E8%AD%9C) を1つずつ取り出すイテレータを返します。
+**recursive** に真を設定すると、**filename** 配下を再帰的に探索します。
 
 ## ライセンス
 [MIT](https://github.com/kobalab/majiang-analog/blob/master/LICENSE)

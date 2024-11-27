@@ -7,24 +7,27 @@ class AnaLog extends require('../').base {
 
     hule(hule) {
         if (! this.watch(hule.l)) return;
-        if (hule.hupai.find(h=> h.name == search))
-                                    console.log(this.idx(hule.l));
+        for (let hupai of hule.hupai) {
+            if (hupai.name.match(search))
+                                    console.log(this.idx(hule.l), hupai.name);
+        }
     }
     pingju(pingju) {
-        if (pingju.name == search)  console.log(this.idx());
+        if (pingju.name.match(search)) console.log(this.idx(), pingju.name);
     }
 }
 
 const yargs = require('yargs');
 const argv = yargs
-    .usage('Usage: $0 <log-dir> <search>')
+    .usage('Usage: $0 <search> <log-dir>...')
+    .option('recursive', { alias: 'r', boolean: true })
     .option('times',     { alias: 't' })
     .option('viewpoint', { alias: 'v' })
     .option('player',    { alias: 'p' })
     .option('silent',    { alias: 's', boolean: true })
     .demandCommand(2)
     .argv;
-const filename = argv._[0];
-const search   = argv._[1];
+const search   = new RegExp(argv._.shift());
+const filename = argv._;
 
 AnaLog.analyze(filename, argv);

@@ -29,11 +29,12 @@ class AnaLog extends require('../') {
 
 const yargs = require('yargs');
 const argv = yargs
-    .usage('Usage: $0 <log-dir>')
+    .usage('Usage: $0 <log-dir>...')
+    .option('recursive', { alias: 'r', boolean: true })
     .option('times',     { alias: 't' })
     .option('silent',    { alias: 's', boolean: true })
     .demandCommand(1)
     .argv;
-const filename = argv._[0];
+const filename = argv._;
 
 console.log(AnaLog.analyze(filename, argv)._result);
