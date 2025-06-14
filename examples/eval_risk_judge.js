@@ -161,7 +161,7 @@ function suan_weixian_new(suanpai, p, c) {
 }
 
 const METHOD = {
-    '予測なし': fixed_risk,
+    '推定なし': fixed_risk,
     'コンボ理論': calc_combo,
     '電脳麻将(旧方式)': suan_weixian_old,
     '電脳麻将(現方式)': suan_weixian,
