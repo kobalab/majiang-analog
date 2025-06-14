@@ -141,9 +141,9 @@ function suan_weixian_new(suanpai, p, c) {
     if (dapai[s+n]) return r;
 
     r += paishu[n] - (c ? 0 : 1) == 3 ? (s == 'z' ? 8 : 3)
-       : paishu[n] - (c ? 0 : 1) == 2 ?             3
-       : paishu[n] - (c ? 0 : 1) == 1 ?             1
-       :                                            0;
+       : paishu[n] - (c ? 0 : 1) == 2 ? 1 * 2 / 3 + 2 * 1 / 3
+       : paishu[n] - (c ? 0 : 1) == 1 ? 1 * 1 / 3
+       :                                0;
     if (s == 'z') return r;
 
     r += n - 2 <  1     ?  0
