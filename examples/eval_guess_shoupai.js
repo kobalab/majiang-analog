@@ -214,6 +214,7 @@ function calc_shoupai(guess, sum, fixed) {
  *  二乗平均平方根誤差
  */
 function eval_by_RMSE(shoupaishu, guess) {
+
     let sum_shoupaishu = Object.keys(shoupaishu).map(p => shoupaishu[p])
                                                 .reduce((x, y)=> x + y, 0);
     let sum = 0, num = 0;
@@ -229,21 +230,14 @@ function eval_by_RMSE(shoupaishu, guess) {
  */
 function eval_by_CEloss(shoupaishu, guess) {
 
-    function CEloss(p, n, guess) {
-        let sum = 0;
-        for (let g of Object.keys(guess)) {
-            sum += (g == p) ? Math.log(guess[g]) : Math.log(1 - guess[g]);
-        }
-        return -sum * n;
-    }
-
-    let sum = 0, num = 0;
-    for (let p of Object.keys(shoupaishu)) {
+    let sum_shoupaishu = Object.keys(shoupaishu).map(p => shoupaishu[p])
+                                                .reduce((x, y)=> x + y, 0);
+    let sum = 0;
+    for (let p of Object.keys(guess)) {
         if (shoupaishu[p] == 0) continue;
-        num += shoupaishu[p];
-        sum += CEloss(p, shoupaishu[p], guess);
+        sum += shoupaishu[p] / sum_shoupaishu * Math.log(guess[p]);
     }
-    return sum / num;
+    return - sum;
 }
 
 /*
