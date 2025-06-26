@@ -18,3 +18,5 @@
 | double_lizhi.js    | [ダブルリーチの好形率・和了率・平均打点](https://blog.kobalab.net/entry/2022/03/19/124607)
 | highest_records.js | [最高記録(最大局数、最長の手牌、最長の河など)](https://blog.kobalab.net/entry/2024/11/27/034233)
 | eval_risk_judge.js | [牌の危険度決定アルゴリズムの評価](https://blog.kobalab.net/entry/2025/06/15/101229)
+| dist_pai2.js       | [局終了時の牌の分布(手牌と河に分類)](https://blog.kobalab.net/entry/2025/06/26/224529)
+| eval_guess_shoupai.js | [手牌推定のアルゴリズムを評価する](https://blog.kobalab.net/entry/2025/06/26/224529)
