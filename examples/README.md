@@ -20,3 +20,4 @@
 | eval_risk_judge.js | [牌の危険度決定アルゴリズムの評価](https://blog.kobalab.net/entry/2025/06/15/101229)
 | dist_pai2.js       | [局終了時の牌の分布(手牌と河に分類)](https://blog.kobalab.net/entry/2025/06/26/224529)
 | eval_guess_shoupai.js | [手牌推定のアルゴリズムを評価する](https://blog.kobalab.net/entry/2025/06/26/224529)
+| eval_risk_judge2.js| 牌の危険度決定アルゴリズムの評価(2)
