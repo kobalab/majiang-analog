@@ -1,3 +1,8 @@
+### v1.2.3 / 2025-07-05
+
+  - examples を追加
+    - examples を追加: eval_risk_judge2.js - 牌の危険度決定アルゴリズムを評価する(2)
+
 ### v1.2.2 / 2025-06-26
 
   - examples を追加
