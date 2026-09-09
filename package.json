@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/kobalab/majiang-analog#readme",
   "devDependencies": {
-    "mocha": "^11.6.0",
+    "mocha": "^12.0.0",
     "nyc": "^17.1.0",
     "yargs": "^17.7.2"
   },
