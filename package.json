@@ -31,6 +31,6 @@
     "yargs": "^17.7.3"
   },
   "dependencies": {
-    "@kobalab/majiang-core": "^1.3.4"
+    "@kobalab/majiang-core": "^1.4.1"
   }
 }
